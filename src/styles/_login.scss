@@ -3,7 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #008080;
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-image: radial-gradient(#019e9e, #016b6b);
   .window {
     margin-bottom: 25vh;
     box-shadow: 0 7px 30px -2px #007272;

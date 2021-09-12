@@ -5,16 +5,19 @@ import { finish } from "../features/loading/loadingSlice";
 import "../styles/_desktop.scss";
 import windows from "../icons/windows-start.png";
 import computer from "../icons/my-computer.png";
+import startup from "../sounds/startup.mp3";
 
 import Console from "./Console";
 import MenuItem from "./MenuItem";
+import Documents from "./applications/Documents";
 
-const Desktop = () => {
+const Desktop = ({ setShowWindows }) => {
   const dispatch = useDispatch();
 
   const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
+    playAudio(startup);
     document.getElementById("desktop").addEventListener("click", (e) => {
       handleClick(e);
     });
@@ -29,8 +32,14 @@ const Desktop = () => {
     };
   }, []);
 
+  const playAudio = (url) => {
+    new Audio(url).play();
+  };
+
   const fadeComponent = (divClass1, divClass2) => {
-    document.getElementsByClassName(divClass1)[0].classList.add("fade-in");
+    document
+      .getElementsByClassName(divClass1)[0]
+      .classList.add("fade-in-desktop");
     document.getElementsByClassName(divClass2)[0].classList.add("fade-in");
   };
 
@@ -44,16 +53,29 @@ const Desktop = () => {
   return (
     <div id="desktop" className="desktop-wrapper">
       <div className="desktop">
-        <Console />
+        <div className="desktop-application"></div>
+
+        <div className="desktop-application">
+          <Documents />
+        </div>
+        <div className="desktop-application">
+          <Console />
+        </div>
+        <div className="desktop-application"></div>
+        <div className="desktop-application"></div>
+        <div className="desktop-application"></div>
+        <div className="desktop-application"></div>
+        <div className="desktop-application"></div>
+        <div className="desktop-application"></div>
       </div>
       <div className="taskbar-wrapper">
         {showMenu && (
           <div className="window taskbar-menu">
             <div className="menu-left-bar"></div>
             <div className="menu-item-wrapper">
-              <div className="menu-item">
+              <div className="menu-item" onClick={() => setShowWindows(true)}>
                 <MenuItem
-                  text="My Computer"
+                  text="Go to login"
                   icon={{ img: computer, alt: "computer-icon" }}
                 />
               </div>
@@ -98,6 +120,11 @@ const Desktop = () => {
             />
             Start
           </button>
+          <div className="status-bar-wrap">
+            <div className="status-bar">
+              <p className="status-bar-field">21:10</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

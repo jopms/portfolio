@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/_console.scss";
 import TypeWriterEffect from "react-typewriter-effect";
 
@@ -30,6 +30,12 @@ const TypeWriterConsole = ({
       }, time);
     }
   });
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
 
   return (
     <div className="console-input-line">

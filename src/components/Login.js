@@ -31,7 +31,7 @@ const Login = ({ showLogin }) => {
         className="window login-window"
       >
         <div className="title-bar console-blue">
-          <div className="title-bar-text">Welcome to Curriculum!</div>
+          <div className="title-bar-text">Welcome!</div>
           <div className="title-bar-controls">
             <button aria-label="Minimize" />
             <button aria-label="Close" onClick={() => {}} />
@@ -44,7 +44,7 @@ const Login = ({ showLogin }) => {
           </div>
           <div>
             <p className="login-text">
-              Type a user name and password to access the curriculum.
+              Type a user name and password to access João's computer.
             </p>
             <div className="login-input">
               <div className="field-row input-spaced">

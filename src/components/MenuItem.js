@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/_menuItem.scss";
 
-const MenuItem = ({ text, icon }) => {
+const MenuItem = ({ text, icon}) => {
   const createText = (text) => {
     return (
       <>
